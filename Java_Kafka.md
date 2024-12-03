@@ -39,6 +39,7 @@ Events are not deleted after consumption (We can define life span of the events)
 Topics are partiotioned, meaning a topic is spread over a number of buckets located on different kafka brokers. This distributed placement of your data is very important for scalability because it allows clients to both read and write the data from/to many brokers at the same time.
 When an event published to a topic it is appended to one of the partition.
 Events with the same key are written to the same partition.
+<br>
 ![image](https://github.com/user-attachments/assets/128b0149-d9d7-41fe-a5e1-bbaccecf0ba2)
 
 
