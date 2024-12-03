@@ -39,11 +39,16 @@ Events are not deleted after consumption (We can define life span of the events)
 Topics are partiotioned, meaning a topic is spread over a number of buckets located on different kafka brokers. This distributed placement of your data is very important for scalability because it allows clients to both read and write the data from/to many brokers at the same time.
 When an event published to a topic it is appended to one of the partition.
 Events with the same key are written to the same partition.
+Every topic can be replicated, even across geo-regions or datacenters.
 <br>
 ![image](https://github.com/user-attachments/assets/128b0149-d9d7-41fe-a5e1-bbaccecf0ba2)
 
-
-
+## Kafka APIs
+- The Admin API to manage and inspect topics, brokers, and other Kafka objects.
+- The Producer API to publish (write) a stream of events to one or more Kafka topics.
+- The Consumer API to subscribe to (read) one or more topics and to process the stream of events produced to them.
+- The Kafka Streams API to implement stream processing applications and microservices. It provides higher-level functions to process event streams, including transformations, stateful operations like aggregations and joins, windowing, processing based on event-time, and more. Input is read from one or more topics in order to generate output to one or more topics, effectively transforming the input streams to output streams.
+- The Kafka Connect API to build and run reusable data import/export connectors that consume (read) or produce (write) streams of events from and to external systems and applications so they can integrate with Kafka. For example, a connector to a relational database like PostgreSQL might capture every change to a set of tables. However, in practice, you typically don't need to implement your own connectors because the Kafka community already provides hundreds of ready-to-use connectors.
 
 
 
