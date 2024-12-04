@@ -24,7 +24,10 @@ services:
       - path/where/to/store/server-1:/bitnami/kafka
 ```
 add HOSTNAME  in the env file. 
+<br>
 [Apache+Kafka+Topic_+Summary+document..pdf](https://github.com/user-attachments/files/18006724/Apache%2BKafka%2BTopic_%2BSummary%2Bdocument.pdf)
+<br>
 [Kafka+CLI_+Producer+Summary.pdf](https://github.com/user-attachments/files/18006731/Kafka%2BCLI_%2BProducer%2BSummary.pdf)
-
+<br>
 [Kafka+CLI_+Consumer+Summary.pdf](https://github.com/user-attachments/files/18006730/Kafka%2BCLI_%2BConsumer%2BSummary.pdf)
+<br>
