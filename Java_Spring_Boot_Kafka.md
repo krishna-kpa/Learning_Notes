@@ -25,136 +25,122 @@ services:
 ```
 add HOSTNAME  in the env file. 
 
-What is an Apache
-Kafka Topic?
-A Kafka Topic is a logical collection of messages that are produced and
-consumed by Kafka applications. A message is a piece of data that
-contains some information, such as an event, a record, or a notificatio
-For example, a message could be a product created event, which
-contains the details of a new product that was added to an online store.
-A Kafka Topic has a unique name that identifies it in a Kafka cluster.
-Kafka cluster is a group of servers, called brokers, that store and manage
-the topics and messages. A Kafka application can connect to a Kafka
-cluster and interact with the topics and messages.
-What is Topic Partition?
-A Kafka Topic is divided into one or more partitions, each of which
-stores a subset of messages in an ordered sequence. A partition is a
-physical unit of storage and processing in a Kafka broker. Each partition
-has a unique identifier, called a partition ID, that is assigned by t
-broker.
-The number of partitions for a topic is determined when the topic is
-created, and it can be changed later. The number of partitions affects the
-scalability, parallelism, fault-tolerance, and ordering guarantees of a
-topic.
-● Scalability: The more partitions a topic has, the more messages it
-can store and handle. A topic with many partitions can be
-distributed across multiple brokers, which increases the storage
-capacity and performance of the topic.
-● Parallelism: The more partitions a topic has, the more producers
-and consumers can interact with it concurrently. A topic with many
-partitions can have multiple producers sending messages to
-different partitions, and multiple consumers receiving messages
-from different partitions. This increases the throughput and
-efficiency of the top
-● Fault-tolerance: The more partitions a topic has, the more resilient
-it is to failures. A topic with many partitions can have replicas,
-which are copies of the partitions stored on different brokers. If a
-broker fails, the replicas can take over and continue serving the
-messages. This increases the availability and reliability of the topic.
-● Ordering guarantees: The more partitions a topic has, the less
-strict the ordering guarantees are. A topic with many partitions can
-only guarantee the order of messages within each partition, but not
-across partitions. This means that messages from different
-partitions may be delivered out of order to the consumers. This
-may or may not be acceptable, depending on the use case of the
-topic.
-How to create topic?
-To create a topic in a Kafka cluster, we can use the kafka-topics.sh
-command line tool, which is provided by Kafka. This tool allows us to
-perform various operations on topics, such as creating, deleting, listing,
-and describing topics.
+# Apache Kafka: Topics and Partitions
+
+## What is an Apache Kafka Topic?
+
+A Kafka **Topic** is a logical collection of messages that are produced and consumed by Kafka applications. A message is a piece of data that contains some information, such as an event, a record, or a notification.  
+For example, a message could be a **product created event**, which contains the details of a new product that was added to an online store.
+
+A Kafka Topic has a **unique name** that identifies it in a Kafka cluster. A Kafka cluster is a group of servers, called **brokers**, that store and manage the topics and messages. A Kafka application can connect to a Kafka cluster and interact with the topics and messages.
+
+---
+
+## What is a Topic Partition?
+
+A Kafka Topic is divided into one or more **partitions**, each of which stores a subset of messages in an ordered sequence. A **partition** is a physical unit of storage and processing in a Kafka broker. Each partition has a unique identifier, called a **partition ID**, that is assigned by the broker.
+
+The number of partitions for a topic is determined when the topic is created, and it can be changed later. The number of partitions affects the **scalability**, **parallelism**, **fault-tolerance**, and **ordering guarantees** of a topic.
+
+### Key Aspects of Topic Partitions
+
+- **Scalability:**  
+  The more partitions a topic has, the more messages it can store and handle. A topic with many partitions can be distributed across multiple brokers, which increases the storage capacity and performance of the topic.
+
+- **Parallelism:**  
+  The more partitions a topic has, the more producers and consumers can interact with it concurrently. A topic with many partitions can have multiple producers sending messages to different partitions, and multiple consumers receiving messages from different partitions. This increases the throughput and efficiency of the topic.
+
+- **Fault-tolerance:**  
+  The more partitions a topic has, the more resilient it is to failures. A topic with many partitions can have **replicas**, which are copies of the partitions stored on different brokers. If a broker fails, the replicas can take over and continue serving the messages. This increases the availability and reliability of the topic.
+
+- **Ordering Guarantees:**  
+  The more partitions a topic has, the less strict the ordering guarantees are. A topic with many partitions can only guarantee the order of messages within each partition, but not across partitions. This means that messages from different partitions may be delivered out of order to the consumers. This may or may not be acceptable, depending on the use case of the topic.
+
+---
+
+## How to Create a Kafka Topic?
+
+To create a topic in a Kafka cluster, we can use the `kafka-topics.sh` command line tool, which is provided by Kafka. This tool allows us to perform various operations on topics, such as creating, deleting, listing, and describing topics.
+
+### Command to Create a Topic
+
 To create a topic, we need to specify the following parameters:
-● --bootstrap-server: The address of one or more brokers in the
-Kafka cluster that we want to connect to. For example,
-localhost:9092.
-● --create: The flag that indicates that we want to create a topi
-● --topic: The name of the topic that we want to create. For
-example, product-created-events-topic.
-● --partitions: The number of partitions that we want to create
-for the topic. For example, 3.
-● --replication-factor: The number of replicas that we want to
-create for each partition of the topic. For example, 2.
-For example, the following command creates a topic named
-product-created-events-topic with 3 partitions and 2 replicas in a
-Kafka cluster with a broker at localhost:9092:
-kafka-topics.sh --bootstrap-server localhost:9092 --create --topic
-product-created-events-topic --partitions 3 --replication-factor 2
-If the topic is created successfully, the tool will print a confirmati
-message, such as:
+
+- `--bootstrap-server`: The address of one or more brokers in the Kafka cluster that we want to connect to. For example, `localhost:9092`.
+- `--create`: The flag that indicates that we want to create a topic.
+- `--topic`: The name of the topic that we want to create. For example, `product-created-events-topic`.
+- `--partitions`: The number of partitions that we want to create for the topic. For example, `3`.
+- `--replication-factor`: The number of replicas that we want to create for each partition of the topic. For example, `2`.
+
+### Example Command
+
+The following command creates a topic named `product-created-events-topic` with 3 partitions and 2 replicas in a Kafka cluster with a broker at `localhost:9092`:
+
+```bash
+kafka-topics.sh --bootstrap-server localhost:9092 --create --topic product-created-events-topic --partitions 3 --replication-factor 2
+```
+## Command Output
+
+If the topic is created successfully, the tool will print a confirmation message, such as:
+
+```bash
 Created topic product-created-events-topic.
-If the topic already exists, or if there is an error, the tool will print an error
-message, such as:
-Topic 'product-created-events-topic' already exists.
-How to create topic with
-partitions?
-As I explained in the previous section, a Kafka Topic is divided into one
-or more partitions, each of which stores a subset of messages in an
-ordered sequence. The number of partitions for a topic affects its
-scalability, parallelism, fault-tolerance, and ordering guarantees.
-To create a topic with partitions, you can use the kafka-topics.sh
-command line tool, which I introduced in the previous section. This tool
-allows you to perform various operations on topics, such as creating,
-deleting, listing, and describing topics.
-To create a topic with partitions, you need to specify the following
-parameters:
-● --bootstrap-server: The address of one or more brokers in the
-Kafka cluster that you want to connect to. For example,
-localhost:9092.
-● --create: The flag that indicates that you want to create a topi
-● --topic: The name of the topic that you want to create. For
-example, product-created-events-topic.
-● --partitions: The number of partitions that you want to create
-for the topic. For example, 3.
-For example, the following command creates a topic named
-product-created-events-topic with 3 partitions in a Kafka cluster
-with a broker at localhost:9092:
-kafka-topics.sh --bootstrap-server localhost:9092 --create --topic
-product-created-events-topic --partitions 3
-If the topic is created successfully, the tool will print a confirmati
-message, such as:
+```
+## How to Create a Topic with Partitions?
+
+As I explained in the previous section, a Kafka Topic is divided into one or more partitions, each of which stores a subset of messages in an ordered sequence. The number of partitions for a topic affects its scalability, parallelism, fault-tolerance, and ordering guarantees.
+
+To create a topic with partitions, you can use the `kafka-topics.sh` command line tool, which I introduced in the previous section. This tool allows you to perform various operations on topics, such as creating, deleting, listing, and describing topics.
+
+### Parameters:
+- `--bootstrap-server`: The address of one or more brokers in the Kafka cluster that you want to connect to. For example, `localhost:9092`.
+- `--create`: The flag that indicates that you want to create a topic.
+- `--topic`: The name of the topic that you want to create. For example, `product-created-events-topic`.
+- `--partitions`: The number of partitions that you want to create for the topic. For example, `3`.
+
+### Example Command:
+The following command creates a topic named `product-created-events-topic` with 3 partitions in a Kafka cluster with a broker at `localhost:9092`:
+
+```bash
+kafka-topics.sh --bootstrap-server localhost:9092 --create --topic product-created-events-topic --partitions 3
+```
+## Command Output:
+
+If the topic is created successfully, the tool will print a confirmation message, such as:
+
+```bash
 Created topic product-created-events-topic.
-If the topic already exists, or if there is an error, the tool will print an error
-message, such as:
+If the topic already exists, or if there is an error, the tool will print an error message, such as:
+
+bash
+Copy code
 Topic 'product-created-events-topic' already exists.
-How to update topic?
-Sometimes, you may want to change the configuration and properties 
-an existing topic, such as changing the number of partitions, the
-replication factor, the retention policy, and other parameters. You can do
-this by using the kafka-topics.sh command line tool, which I
-introduced in the previous sections. This tool allows you to perform
-various operations on topics, such as creating, deleting, listing, and
-describing topics.
-To update a topic, you need to specify the following parameters:
-● --bootstrap-server: The address of one or more brokers in the
-Kafka cluster that you want to connect to. For example,
-localhost:9092.
-● --alter: The flag that indicates that you want to update a topi
-● --topic: The name of the topic that you want to update. For
-example, product-created-events-topic.
-● --config: A comma-separated list of key=value pairs, where
-key is the name of the parameter that you want to update, and
-value is the new value that you want to assign to it. For example,
-retention.ms=43200000.
-For example, the following command updates the retention policy of the
-topic named product-created-events-topic to 12 hours in a Kafka
-cluster with a broker at localhost:9092:
-kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic
-product-created-events-topic --config retention.ms=43200000
-There are many parameters that you can update for a topic, such as the
-number of partitions, the replication factor, the cleanup policy, the
-compression type, and more. You can find the full list of top
-configurations and their descriptions in the Kafka topic configura
-reference.
+```
+## How to Update a Topic?
+
+Sometimes, you may want to change the configuration and properties of an existing topic, such as changing the number of partitions, the replication factor, the retention policy, and other parameters. You can do this by using the `kafka-topics.sh` command line tool.
+
+### Parameters for Updating a Topic:
+- `--bootstrap-server`: The address of one or more brokers in the Kafka cluster that you want to connect to. For example, `localhost:9092`.
+- `--alter`: The flag that indicates that you want to update a topic.
+- `--topic`: The name of the topic that you want to update. For example, `product-created-events-topic`.
+- `--config`: A comma-separated list of key=value pairs, where `key` is the name of the parameter that you want to update, and `value` is the new value that you want to assign to it. For example, `retention.ms=43200000`.
+
+### Example Command:
+The following command updates the retention policy of the topic named `product-created-events-topic` to 12 hours (43200000 ms) in a Kafka cluster with a broker at `localhost:9092`:
+
+```bash
+kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic product-created-events-topic --config retention.ms=43200000
+```
+#### Additional Topic Configurations:
+There are many parameters that you can update for a topic, such as the number of partitions, the replication factor, the cleanup policy, the compression type, and more. You can find the full list of topic configurations and their descriptions in the Kafka topic configuration reference.
+
+css
+Copy code
+
+This Markdown includes all the necessary sections and code formatting for clear presentation.
+
+
 In the following subsections, I will show you how to update some of the
 common parameters for a topic.
 How to update topic partitions?
