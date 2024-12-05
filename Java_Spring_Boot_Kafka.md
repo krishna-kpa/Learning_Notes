@@ -25,9 +25,19 @@ services:
 ```
 add HOSTNAME  in the env file. 
 <br>
-[Apache+Kafka+Topic_+Summary+document..pdf](https://github.com/user-attachments/files/18006724/Apache%2BKafka%2BTopic_%2BSummary%2Bdocument.pdf)
+[Apache Kafka Topic](https://github.com/user-attachments/files/18006724/Apache%2BKafka%2BTopic_%2BSummary%2Bdocument.pdf)
 <br>
-[Kafka+CLI_+Producer+Summary.pdf](https://github.com/user-attachments/files/18006731/Kafka%2BCLI_%2BProducer%2BSummary.pdf)
+[Kafka CLI_Producer Summary](https://github.com/user-attachments/files/18006731/Kafka%2BCLI_%2BProducer%2BSummary.pdf)
 <br>
-[Kafka+CLI_+Consumer+Summary.pdf](https://github.com/user-attachments/files/18006730/Kafka%2BCLI_%2BConsumer%2BSummary.pdf)
+[Kafka CLI_Consumer Summary](https://github.com/user-attachments/files/18006730/Kafka%2BCLI_%2BConsumer%2BSummary.pdf)
+<br>
+[Kafka+Producer+-+Spring+Boot.pdf](https://github.com/user-attachments/files/18018868/Kafka%2BProducer%2B-%2BSpring%2BBoot.pdf)
+<br>
+[Kafka Producer Asynchronous Communication](https://github.com/user-attachments/files/18018881/Kafka%2BProducer%2B-%2BAsynchronous%2BCommunication.pdf)
+<br>
+[Kafka Producer Synchronous Communication](https://github.com/user-attachments/files/18018879/Kafka%2BProducer%2B-%2BSynchronous%2BCommunication.pdf)
+<br>
+[Kafka Producer Retries](https://github.com/user-attachments/files/18018877/Kafka%2BProducer%2BRetries.pdf)
+<br>
+[Kafka Producer Acknowledgement](https://github.com/user-attachments/files/18018874/Kafka%2BProducer%2BAcknowledgement.pdf)
 <br>
