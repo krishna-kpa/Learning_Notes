@@ -42,3 +42,6 @@ add HOSTNAME  in the env file.
 [Kafka Producer Acknowledgement](https://github.com/user-attachments/files/18018874/Kafka%2BProducer%2BAcknowledgement.pdf)
 <br>
 [Kafka Consumer](https://github.com/user-attachments/files/18022730/Kafka%2BConsumer.pdf)
+<br>
+[Dead Letter Topic](https://github.com/user-attachments/files/18023737/Dead%2BLetter%2BTopic.pdf)
+<br>
