@@ -31,7 +31,7 @@ add HOSTNAME  in the env file.
 <br>
 [Kafka CLI_Consumer Summary](https://github.com/user-attachments/files/18006730/Kafka%2BCLI_%2BConsumer%2BSummary.pdf)
 <br>
-[Kafka+Producer+-+Spring+Boot.pdf](https://github.com/user-attachments/files/18018868/Kafka%2BProducer%2B-%2BSpring%2BBoot.pdf)
+[Kafka Producer Spring Boot](https://github.com/user-attachments/files/18018868/Kafka%2BProducer%2B-%2BSpring%2BBoot.pdf)
 <br>
 [Kafka Producer Asynchronous Communication](https://github.com/user-attachments/files/18018881/Kafka%2BProducer%2B-%2BAsynchronous%2BCommunication.pdf)
 <br>
