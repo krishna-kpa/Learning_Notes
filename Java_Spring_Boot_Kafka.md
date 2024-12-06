@@ -45,3 +45,11 @@ add HOSTNAME  in the env file.
 <br>
 [Dead Letter Topic](https://github.com/user-attachments/files/18023737/Dead%2BLetter%2BTopic.pdf)
 <br>
+[Consumers and Partition Assignment](https://github.com/user-attachments/files/18033454/Consumers%2Band%2BPartition%2BAssignment.pdf)
+<br>
+[Idempotent Consumer](https://github.com/user-attachments/files/18033453/Idempotent%2BConsumer.pdf)
+<br>
+[Consumer Retries](https://github.com/user-attachments/files/18033451/Consumer%2BRetries.pdf)
+<br>
+[Multiple Consumers and Consumer Groups](https://github.com/user-attachments/files/18033450/Multiple%2BConsumers%2Band%2BConsumer%2BGroups.pdf)
+<br>
